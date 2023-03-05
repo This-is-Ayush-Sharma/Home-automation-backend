@@ -10,5 +10,6 @@ app.get('/health',(req,res)=>{
 })
 
 app.get('/ChangeState',appliance_controller.ControlDevices);
+app.get('/getState',appliance_controller.IotHandler);
 
 module.exports = app;

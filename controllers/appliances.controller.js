@@ -9,3 +9,8 @@ exports.ControlDevices = (req,res)=>{
         state: CurrState
     });
 }
+
+
+exports.IotHandler = (req,res)=>{
+    return res.send(CurrState.toString());
+}
