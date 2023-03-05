@@ -7,4 +7,6 @@ app.use(express.json());
 app.use(cors());
 app.use('/api/v1',routes);
 
+global.CurrState = 0
+
 app.listen(5000, ()=> console.log(`App live at port 5000`));
