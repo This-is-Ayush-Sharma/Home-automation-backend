@@ -14,3 +14,9 @@ exports.ControlDevices = (req,res)=>{
 exports.IotHandler = (req,res)=>{
     return res.send(CurrState.toString());
 }
+
+exports.AppState = (req,res)=>{
+    return res.json({
+        state: CurrState
+    })
+}
