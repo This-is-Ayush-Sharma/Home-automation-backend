@@ -19,7 +19,7 @@ wss.on('connection', function connection(ws) {
     //   const data = { value: Math.random() }; // generate random data
     //   console.log('Sending data:',CurrState);
       ws.send(CurrState.toString()); // convert data to string and send
-    }, 500);
+    }, 700);
   
     // When the client disconnects
     ws.on('close', function close() {
