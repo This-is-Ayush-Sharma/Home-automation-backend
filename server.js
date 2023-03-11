@@ -16,10 +16,10 @@ wss.on('connection', function connection(ws) {
   
     // Send data to the client every second
     const interval = setInterval(function sendData() {
-      const data = { value: Math.random() }; // generate random data
-      console.log('Sending data:', data);
-      ws.send(JSON.stringify(data)); // convert data to string and send
-    }, 1000);
+    //   const data = { value: Math.random() }; // generate random data
+      console.log('Sending data:',CurrState);
+      ws.send(CurrState.toString()); // convert data to string and send
+    }, 100);
   
     // When the client disconnects
     ws.on('close', function close() {
