@@ -15,14 +15,15 @@ wss.on('connection', function connection(ws) {
   console.log('New client connected');
 
   ws.on('message', function incoming(message) {
-    console.log('Received message:', message);
+    console.log('Received message:', message.toString());
+    ws.send(CurrState.toString());
   });
   // Send data to the client every second
-  const interval = setInterval(function sendData() {
-    //   const data = { value: Math.random() }; // generate random data
-    // console.log('Sending data:', CurrState);
-    ws.send(CurrState.toString()); // convert data to string and send
-  }, 2000);
+  // const interval = setInterval(function sendData() {
+  //   //   const data = { value: Math.random() }; // generate random data
+  //   // console.log('Sending data:', CurrState);
+  //   ws.send(CurrState.toString()); // convert data to string and send
+  // }, 2000);
 
   // When the client disconnects
   ws.on('close', function close() {
