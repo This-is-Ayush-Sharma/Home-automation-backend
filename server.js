@@ -14,9 +14,12 @@ global.CurrState = 0
 wss.on('connection', function connection(ws) {
   console.log('New client connected');
 
-  ws.on('message', function incoming(message) {
+  ws.on('message', async (message) =>{
     console.log('Received message:', message.toString());
-    ws.send(CurrState.toString());
+    await new Promise((resolve,reject)=>{
+      ws.send(CurrState.toString());
+      resolve();
+    })
   });
   // Send data to the client every second
   // const interval = setInterval(function sendData() {
