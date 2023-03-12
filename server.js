@@ -28,7 +28,7 @@ wss.on('connection', function connection(ws) {
   // When the client disconnects
   ws.on('close', function close() {
     console.log('Client disconnected');
-    clearInterval(interval); // stop sending data to the disconnected client
+    // clearInterval(interval); // stop sending data to the disconnected client
   });
 });
 
