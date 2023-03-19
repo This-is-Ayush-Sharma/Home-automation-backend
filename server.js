@@ -14,24 +14,24 @@ global.CurrState = 0
 wss.on('connection', function connection(ws) {
   console.log('New client connected');
 
-  ws.on('message', async (message) =>{
-    console.log('Received message:', message.toString());
-    await new Promise((resolve,reject)=>{
-      ws.send(CurrState.toString());
-      resolve();
-    })
-  });
+  // ws.on('message', async (message) =>{
+  //   console.log('Received message:', message.toString());
+  //   await new Promise((resolve,reject)=>{
+  //     ws.send(CurrState.toString());
+  //     resolve();
+  //   })
+  // });
   // Send data to the client every second
-  // const interval = setInterval(function sendData() {
-  //   //   const data = { value: Math.random() }; // generate random data
-  //   // console.log('Sending data:', CurrState);
-  //   ws.send(CurrState.toString()); // convert data to string and send
-  // }, 2000);
+  const interval = setInterval(function sendData() {
+    //   const data = { value: Math.random() }; // generate random data
+    // console.log('Sending data:', CurrState);
+    ws.send(CurrState.toString()); // convert data to string and send
+  }, 2000);
 
   // When the client disconnects
   ws.on('close', function close() {
     console.log('Client disconnected');
-    // clearInterval(interval); // stop sending data to the disconnected client
+    clearInterval(interval); // stop sending data to the disconnected client
   });
 });
 
